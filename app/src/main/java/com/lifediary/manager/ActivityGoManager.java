@@ -3,6 +3,7 @@ package com.lifediary.manager;
 import android.app.Activity;
 
 import com.lifediary.util.ActivityGo;
+import com.lifediary.view.activity.LogInActivity;
 import com.lifediary.view.activity.MainActivity;
 import com.lifediary.view.activity.RegisterActivity;
 
@@ -29,4 +30,12 @@ public class ActivityGoManager {
         ActivityGo.build(activity, RegisterActivity.class).go();
     }
 
+    /**
+     * 跳转登录
+     *
+     * @param activity
+     */
+    public static void goLogIn(Activity activity) {
+        ActivityGo.build(activity, LogInActivity.class).go();
+    }
 }

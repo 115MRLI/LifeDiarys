@@ -27,7 +27,7 @@ public class SplashActivity extends BaseActivity implements SplashContract.View 
         //检查必备权限
         PermissionManager.checkMust(getActivity(), allGranted -> {
             //跳转到首页
-            ActivityGoManager.goRegister(getActivity());
+            ActivityGoManager.goLogIn(getActivity());
             onBackPressed();
         });
     }

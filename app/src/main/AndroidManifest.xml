@@ -20,9 +20,6 @@
         android:supportsRtl="true"
         android:theme="@style/Base.AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <!--注册界面-->
-        <activity android:name=".view.activity.RegisterActivity" />
         <!--启动页-->
         <activity android:name=".view.activity.SplashActivity">
             <intent-filter>
@@ -32,6 +29,10 @@
         </activity>
         <!--首页-->
         <activity android:name=".view.activity.MainActivity" />
+        <!--注册界面-->
+        <activity android:name=".view.activity.RegisterActivity" />
+        <!--登录-->
+        <activity android:name=".view.activity.LogInActivity" />
 
         <!-- 即时通讯模块、推送（均需要加入以下声明） START -->
         <!-- 即时通讯模块、推送都要使用 PushService -->
