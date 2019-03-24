@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.lifediary.R;
+import com.lifediary.manager.ActivityGoManager;
 import com.lifediary.mvp.contract.RegisterContract;
 import com.lifediary.mvp.presenter.RegisterPresenter;
 import com.lifediary.util.ToastUtils;
@@ -95,5 +96,11 @@ public class RegisterActivity extends BaseActivity implements RegisterContract.V
                 verificationCodeGet.setText("获取验证码");
             }
         }.start();
+    }
+
+    @Override
+    public void registerSuccess() {
+        ActivityGoManager.goLogIn(getActivity());
+        onBackPressed();
     }
 }

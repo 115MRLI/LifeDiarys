@@ -3,12 +3,14 @@ package com.lifediary.mvp.presenter;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.lifediary.model.User;
 import com.lifediary.mvp.contract.RegisterContract;
 import com.lifediary.util.ToastUtils;
 
 import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 
@@ -47,17 +49,18 @@ public class RegisterPresenter implements RegisterContract.Presenter {
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    mTvInfo.append("验证码验证成功，您可以在此时进行绑定操作！\n");
-                    User user = BmobUser.getCurrentUser(User.class);
-                    user.setMobilePhoneNumber(phone);
-                    user.setMobilePhoneNumberVerified(true);
-                    user.update(new UpdateListener() {
+                    User user = new User();
+                    user.setUsername("" + UserName);
+                    user.setPassword("" + password);
+                    user.setGender(0);
+                    user.signUp(new SaveListener<User>() {
                         @Override
-                        public void done(BmobException e) {
+                        public void done(User user, BmobException e) {
                             if (e == null) {
-                                mTvInfo.append("绑定手机号码成功");
+                                ToastUtils.showShort(context, "注册成功");
+                                view.registerSuccess();
                             } else {
-                                mTvInfo.append("绑定手机号码失败：" + e.getErrorCode() + "-" + e.getMessage());
+                                ToastUtils.showShort(context, "尚未失败");
                             }
                         }
                     });
