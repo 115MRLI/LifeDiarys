@@ -4,8 +4,8 @@ package com.lifediary;
 
 import android.app.Application;
 
-import cn.leancloud.AVLogger;
-import cn.leancloud.AVOSCloud;
+import cn.bmob.v3.Bmob;
+
 
 public class LifeDiaryApplication extends Application {
     //除非特殊情况，否则尽量少用
@@ -14,12 +14,7 @@ public class LifeDiaryApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        // 在 AVOSCloud.initialize 之前调用
-        AVOSCloud.setLogLevel(AVLogger.Level.DEBUG);
-
-        // 初始化参数依次为 this, AppId, AppKey
-        AVOSCloud.initialize(this,"LwK6u0GzOsgYISOPSA2RJavm-gzGzoHsz","Bml3LHmELsSN0SbWJkXAnabc");
+        Bmob.initialize(this, "a0997a556c4b71b7fd38ccc3018f5a16");
     }
     /**
      * 获取application实例

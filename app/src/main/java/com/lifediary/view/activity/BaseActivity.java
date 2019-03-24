@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ActivityManager.get().add(this);
         super.onCreate(savedInstanceState);
         //隐藏状态栏和标题栏
-        Utils.setNavigationBarStatusBar(this, true);
+        Utils.setNavigationBarStatusBar(this, false);
         //赋值TAG
         TAG = this.getClass().getSimpleName();
         //初始化变量(用户传递进来的参数)
